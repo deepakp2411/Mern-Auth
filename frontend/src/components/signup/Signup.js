@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { registerUser } from "../../features/auth/authSlice";
 
 const initialState = {
   name: "",
@@ -9,6 +11,16 @@ const initialState = {
 
 const Signup = () => {
   const [form, setForm] = useState(initialState);
+  const dispatch = useDispatch()
+
+  const {user,error,success,message} = useSelector((state) => state.auth)
+
+  useEffect(() => {
+    if(error){
+      
+    }
+
+  },[])
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -17,7 +29,8 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(form)
+    dispatch(registerUser(form))
+    // console.log(form)
   }
   return (
     <section className="grid place-content-center bg-gray-200 h-[50vh] rounded-md">

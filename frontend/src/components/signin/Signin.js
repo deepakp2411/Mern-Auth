@@ -32,7 +32,7 @@ const Signin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFormErrors(handleError())
+    // setFormErrors(handleError())
     // console.log(form);
   };
   return (
@@ -57,7 +57,7 @@ const Signin = () => {
             onChange={handleInputChange}
             className="w-48"
           />
-          {/* <span className="text-sm text-red-500">{formErrors.email}</span> */}
+          {/* <span className="text-sm text-red-500">{formErrors?.email}</span> */}
         </div>
         <div className="">
           <label>Password</label>
@@ -69,8 +69,8 @@ const Signin = () => {
             onChange={handleInputChange}
             className="w-48"
           />
+          {/* <span className="text-sm text-red-700">{formErrors?.password}</span> */}
         </div>
-          <span className="text-sm text-red-700">{formErrors.password}</span>
 
         <button
           type="submit"
